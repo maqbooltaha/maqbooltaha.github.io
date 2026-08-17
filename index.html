@@ -153,6 +153,44 @@
         color: #555;
       }
       
+
+      /* ---------- TECHNICAL SKILLS ---------- */
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin: 16px 0 28px;
+      }
+
+      .skill-group {
+        background: #0d1b2a;
+        border: 1px solid #17324a;
+        border-radius: 10px;
+        padding: 18px;
+      }
+
+      .skill-group h3 {
+        color: #ffffff;
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .skill-tags span {
+        background: #102c40;
+        border: 1px solid #1d506e;
+        color: #38bdf8;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+      }
       /* PASTE EXPERIENCE CSS HERE */
       .experience-item {
         margin-bottom: 28px;
@@ -186,6 +224,10 @@
       /* ---------- MOBILE: stack cards vertically ---------- */
       @media (max-width: 640px) {
         .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-grid {
           grid-template-columns: 1fr;
         }
       }
@@ -243,20 +285,42 @@
           
           <h2>Technical Skills</h2>
 
-          <p>
-            <strong>Programming:</strong> Python, SQL
-          </p>
+          <div class="skills-grid'>
 
-          <p>
-            <strong>Analytics & Tools:</strong> Excel, Pandas, Matplotlib, Power BI
-          </p>
+            <div class="skill-group">
+              <h3>Programming</h3>
+              <div class="skills-tags">
+                <span>Python</span>
+              </div>
+            </div>
 
-          <p>
-            <strong>Databases:</strong> MySQL, Database Design, ER Modeling
-          </p>
-          <P>
-            <strong>Business:</strong> Financial Analysis, Business Analytics, Data Visualization
-          </P>
+            <div class="skill-group">
+              <h3>Analytics & Tools</h3>
+            </div class="skill-tags">
+            <span>Excel</span>
+            <span>Pandas</span>
+            <span>Matplotlib</span>
+            <span>Power-BI</span>
+            <div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Databases</h3>
+            <div class="skill-tags">
+              <span>MySQL</span>
+              <span>Database Design</span>
+              <span>ER Modeling</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3>Business & Analytics</h3>
+            <div class="skill-tags">
+              <span>Financial Analysis</span>
+              <span>Business Analytics</span>
+              <span>Data Visualization</span>
+            </div>
+          </div>
 
           <h2>Experience</h2>
 
