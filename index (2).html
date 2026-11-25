@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taha Maqbool | Finance &amp; Analytics</title>
+  <meta name="description" content="Taha Maqbool — Master of Management in Analytics candidate at McGill University. Finance and business analytics, machine learning, SQL and BI." />
+  <meta property="og:title" content="Taha Maqbool | Finance &amp; Analytics" />
+  <meta property="og:description" content="MMA candidate at McGill Desautels with a Finance & Business Analytics background. Projects in ML, causal inference, SQL and BI." />
+  <meta property="og:image" content="https://maqbooltaha.github.io/headshot.jpg" />
+  <meta property="og:url" content="https://maqbooltaha.github.io/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2a44'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23d9b26f' text-anchor='middle'%3ETM%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #0f2a44;          /* deep navy */
+      --ink-soft: #2f4a63;
+      --text: #33414f;
+      --muted: #6b7a89;
+      --paper: #f7f5f0;        /* warm off-white */
+      --card: #ffffff;
+      --line: #e3ded3;
+      --accent: #b8893e;       /* muted brass */
+      --accent-soft: #f3ead9;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+    body { font-family: var(--sans); color: var(--text); background: var(--paper); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+
+    /* ---------- NAV ---------- */
+    nav { position: sticky; top: 0; z-index: 10; background: rgba(247, 245, 240, 0.92); backdrop-filter: blur(8px); border-bottom: 1px solid transparent; transition: border-color .2s; }
+    nav.scrolled { border-bottom-color: var(--line); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-family: var(--serif); font-weight: 600; font-size: 20px; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; color: var(--ink-soft); }
+    .nav-links a:hover { color: var(--accent); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .15s, background .15s, color .15s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--ink); color: #fff; }
+    .btn-primary:hover { background: #17395b; }
+    .btn-ghost { border: 1px solid var(--ink); color: var(--ink); }
+    .btn-ghost:hover { background: var(--ink); color: #fff; }
+    .nav-links .btn { padding: 8px 14px; color: #fff; }
+
+    /* ---------- HERO ---------- */
+    .hero { padding: 88px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.45fr 1fr; gap: 64px; align-items: center; }
+    .eyebrow { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 18px; }
+    h1 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(40px, 5.6vw, 62px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 22px; }
+    .lede { font-size: 18.5px; color: var(--ink-soft); max-width: 34em; margin-bottom: 30px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 30px; }
+    .socials { display: flex; gap: 18px; font-size: 14px; }
+    .socials a { color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .socials a:hover { color: var(--ink); }
+    .socials svg { width: 16px; height: 16px; }
+    .portrait { position: relative; justify-self: end; width: 100%; max-width: 360px; }
+    .portrait img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; position: relative; z-index: 1; filter: saturate(0.95); }
+    .portrait::before { content: ""; position: absolute; inset: 18px -18px -18px 18px; border: 1.5px solid var(--accent); border-radius: 10px; }
+    .status { position: absolute; z-index: 2; left: -22px; bottom: 28px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font-size: 13px; box-shadow: 0 8px 24px rgba(15, 42, 68, .1); display: flex; align-items: center; gap: 10px; }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: #2e9e6a; box-shadow: 0 0 0 4px rgba(46, 158, 106, .15); }
+    .status b { color: var(--ink); font-weight: 600; display: block; }
+    .status small { color: var(--muted); }
+
+    /* ---------- STATS ---------- */
+    .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--card); }
+    .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 26px 24px; border-left: 1px solid var(--line); }
+    .stat:first-child { border-left: none; padding-left: 0; }
+    .stat strong { display: block; font-family: var(--serif); font-size: 30px; color: var(--ink); font-weight: 600; line-height: 1.1; }
+    .stat span { font-size: 13.5px; color: var(--muted); }
+
+    /* ---------- SECTIONS ---------- */
+    section.block { padding: 96px 0 0; }
+    .section-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 40px; }
+    .section-head .num { font-family: var(--mono); font-size: 13px; color: var(--accent); }
+    h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: 34px; letter-spacing: -0.015em; }
+    .section-head::after { content: ""; flex: 1; height: 1px; background: var(--line); transform: translateY(-8px); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; }
+    .about p { margin-bottom: 16px; font-size: 17px; }
+    .about p strong { color: var(--ink); font-weight: 600; }
+    .focus { align-self: start; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 26px; }
+    .focus h3 { font-size: 13px; font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; font-weight: 500; }
+    .focus ul { list-style: none; }
+    .focus li { padding: 10px 0; border-top: 1px solid var(--line); color: var(--ink); font-weight: 500; display: flex; gap: 12px; }
+    .focus li:first-child { border-top: none; padding-top: 0; }
+    .focus li::before { content: "—"; color: var(--accent); }
+
+    /* Experience timeline */
+    .timeline { position: relative; }
+    .role { display: grid; grid-template-columns: 200px 1fr; gap: 40px; padding: 30px 0; border-top: 1px solid var(--line); }
+    .role:first-child { border-top: none; padding-top: 0; }
+    .role-meta { font-size: 14px; color: var(--muted); }
+    .role-meta .date { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+    .tag-live { display: inline-block; margin-top: 10px; font-size: 11.5px; font-weight: 600; color: #1f7a52; background: #e3f3ea; padding: 3px 9px; border-radius: 20px; }
+    .role h3 { font-size: 19px; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+    .role .org { color: var(--accent); font-weight: 500; margin-bottom: 12px; display: block; }
+    .role ul { padding-left: 18px; }
+    .role li { margin-bottom: 7px; }
+    .role li::marker { color: var(--accent); }
+    .sub-role { font-size: 13.5px; color: var(--muted); margin-bottom: 12px; display: block; }
+
+    /* Projects */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .project { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 28px; display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s, border-color .2s; }
+    .project:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(15, 42, 68, .09); border-color: #d4cbb9; }
+    .project.featured { grid-column: span 2; background: var(--ink); border-color: var(--ink); color: #c9d4df; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+    .project.featured h3 { color: #fff; }
+    .project.featured .metric { color: var(--accent); }
+    .project.featured .metric-label { color: #8fa3b8; }
+    .project.featured .chips span { background: rgba(255, 255, 255, .08); color: #dfe7ee; border-color: rgba(255, 255, 255, .14); }
+    .project .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .project.featured .kicker { color: #8fa3b8; }
+    .metric { font-family: var(--serif); font-size: 36px; font-weight: 600; color: var(--ink); line-height: 1; letter-spacing: -0.01em; }
+    .metric-label { font-size: 13px; color: var(--muted); margin: 6px 0 18px; }
+    .project h3 { font-size: 19px; color: var(--ink); font-weight: 600; margin-bottom: 10px; line-height: 1.35; }
+    .project p { font-size: 15px; margin-bottom: 18px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; }
+    .chips span { font-size: 12.5px; padding: 4px 10px; border-radius: 4px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-soft); }
+    .project-link { margin-top: 18px; font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
+    .project-link:hover { color: var(--accent); }
+    .featured-side { border-left: 1px solid rgba(255, 255, 255, .12); padding-left: 36px; display: flex; flex-direction: column; justify-content: center; gap: 22px; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .skill-col h3 { font-size: 15px; color: var(--ink); font-weight: 600; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 2px solid var(--accent); }
+    .skill-col ul { list-style: none; }
+    .skill-col li { padding: 6px 0; font-size: 15px; }
+    .skill-col li small { color: var(--muted); display: block; font-size: 13px; }
+
+    /* Education */
+    .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .edu-card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 28px; border-top: 3px solid var(--ink); }
+    .edu-card .date { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+    .edu-card h3 { font-family: var(--serif); font-size: 22px; color: var(--ink); font-weight: 600; margin: 8px 0 2px; }
+    .edu-card .deg { color: var(--accent); font-weight: 500; margin-bottom: 12px; }
+    .edu-card p { font-size: 15px; }
+    .certs { margin-top: 22px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 24px 28px; display: grid; grid-template-columns: 160px 1fr; gap: 24px; }
+    .certs h3 { font-size: 13px; font-family: var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 500; }
+    .certs ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 24px; font-size: 15px; }
+    .certs li { color: var(--ink); }
+    .certs li small { color: var(--muted); display: block; font-size: 13px; }
+
+    /* Contact */
+    .contact { margin: 110px 0 0; background: var(--ink); color: #c9d4df; padding: 80px 0; }
+    .contact .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+    .contact h2 { color: #fff; font-size: clamp(30px, 4vw, 42px); margin-bottom: 14px; }
+    .contact p { font-size: 17px; max-width: 30em; }
+    .contact-list { list-style: none; }
+    .contact-list li { border-top: 1px solid rgba(255, 255, 255, .12); }
+    .contact-list li:last-child { border-bottom: 1px solid rgba(255, 255, 255, .12); }
+    .contact-list a { display: flex; justify-content: space-between; padding: 16px 0; text-decoration: none; color: #fff; font-weight: 500; }
+    .contact-list a span { color: #8fa3b8; font-weight: 400; font-size: 14px; }
+    .contact-list a:hover { color: var(--accent); }
+    footer { background: var(--ink); color: #6f8499; font-size: 13px; padding: 0 0 36px; }
+    footer .wrap { display: flex; justify-content: space-between; }
+    footer .inner { border-top: 1px solid rgba(255, 255, 255, .08); padding-top: 24px; display: flex; justify-content: space-between; width: 100%; }
+    @media (max-width: 680px) { footer .inner { flex-direction: column; gap: 6px; } }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero .wrap, .about, .contact .wrap { grid-template-columns: 1fr; gap: 40px; }
+      .portrait { justify-self: start; max-width: 280px; margin-left: 18px; }
+      .stats .wrap { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(3) { border-left: none; padding-left: 0; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .skills { grid-template-columns: repeat(2, 1fr); row-gap: 34px; }
+      .project.featured { grid-template-columns: 1fr; }
+      .featured-side { border-left: none; padding-left: 0; border-top: 1px solid rgba(255, 255, 255, .12); padding-top: 24px; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; gap: 28px; }
+    }
+    @media (max-width: 680px) {
+      .wrap { padding: 0 20px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .hero { padding: 56px 0 56px; }
+      .role { grid-template-columns: 1fr; gap: 8px; }
+      .projects, .edu { grid-template-columns: 1fr; }
+      .project.featured { grid-column: auto; }
+      .certs { grid-template-columns: 1fr; gap: 14px; }
+      .certs ul { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: 1fr; }
+      .status { left: -12px; }
+      section.block { padding-top: 76px; }
+      footer .wrap { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="nav">
+    <div class="wrap">
+      <a href="#top" class="brand">Taha Maqbool<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="btn btn-primary" href="Taha_Maqbool_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Finance &amp; Analytics · Montréal</p>
+        <h1>Turning financial and operational data into decisions.</h1>
+        <p class="lede">I'm a Master of Management in Analytics candidate at McGill's Desautels Faculty, with a B.S. in Finance and Business Analytics from the University of Kansas. I build models, dashboards and databases that help businesses see clearly and act faster.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">View my work</a>
+          <a class="btn btn-ghost" href="mailto:tahasajidmaqbool@gmail.com">Get in touch</a>
+        </div>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/taha-maqbool001/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            LinkedIn</a>
+          <a href="https://github.com/maqbooltaha" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            GitHub</a>
+          <a href="mailto:tahasajidmaqbool@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            Email</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="headshot.jpg" alt="Portrait of Taha Maqbool" />
+        <div class="status"><i></i><div><b>Open to opportunities</b><small>Finance &amp; analytics roles</small></div></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><strong>MMA '27</strong><span>McGill Desautels</span></div>
+      <div class="stat"><strong>6</strong><span>Analytics &amp; ML projects</span></div>
+      <div class="stat"><strong>363K</strong><span>Police reports modelled</span></div>
+      <div class="stat"><strong>10</strong><span>Team members led at KU Dining</span></div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="num">01</span><h2>About</h2></div>
+        <div class="about">
+          <div class="reveal">
+            <p>My background sits where <strong>finance meets analytics</strong>. At K-Electric, Karachi's electric utility, I supported month-end close in SAP and dug into year-over-year financials to catch discrepancies before they reached reports. At McGill, I've been building the technical side: machine learning, causal inference, relational databases and BI dashboards.</p>
+            <p>What I enjoy most is the step after the model, when a result has to become a recommendation someone can act on. I've led a 10-person team in a high-volume service setting, and I bring the same focus on clear communication and reliable execution to analytical work.</p>
+            <p>I'm looking for roles in <strong>financial analytics, FP&amp;A, consulting and asset management</strong> where rigorous analysis drives real decisions.</p>
+          </div>
+          <aside class="focus reveal">
+            <h3>Areas of interest</h3>
+            <ul>
+              <li>Financial markets &amp; asset management</li>
+              <li>Financial &amp; analytics consulting</li>
+              <li>Business intelligence &amp; KPI design</li>
+              <li>Real estate investing</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="block" id="experience">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="num">02</span><h2>Experience</h2></div>
+        <div class="timeline">
+          <article class="role reveal">
+            <div class="role-meta"><span class="date">Sept 2026 – Apr 2027</span>Montréal, Canada<br><span class="tag-live">In progress</span></div>
+            <div>
+              <h3>Business Intelligence Developer</h3>
+              <span class="org">Agence Ometz · McGill MMA Capstone</span>
+              <ul>
+                <li>Developing a nonprofit-adapted balanced scorecard for a social services agency to measure program effectiveness, cost efficiency and social impact.</li>
+                <li>Designing interactive dashboards and evaluating Power BI and Tableau as the agency's reporting platform.</li>
+                <li>Translating mission objectives into measurable KPIs with agency leadership and a cross-functional student team.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta"><span class="date">July 2024 – Aug 2024</span>Karachi, Pakistan</div>
+            <div>
+              <h3>Finance Intern</h3>
+              <span class="org">K-Electric Limited</span>
+              <ul>
+                <li>Processed accruals, reversals, fixed asset entries and account reconciliations in SAP to support month-end close, budgeting and compliance.</li>
+                <li>Performed year-over-year analysis of financial records; flagged discrepancies and recommended corrective adjustments that improved reporting accuracy.</li>
+                <li>Proposed reporting workflow improvements and partnered with cross-functional departments to deliver accurate financial reports on deadline.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role reveal">
+            <div class="role-meta"><span class="date">Sept 2022 – May 2026</span>Lawrence, Kansas</div>
+            <div>
+              <h3>Crew Leader</h3>
+              <span class="org">University of Kansas · Memorial Unions Dining</span>
+              <span class="sub-role">Promoted from Crew Member (Sept 2022 – Sept 2024)</span>
+              <ul>
+                <li>Supervised and trained a 10-person crew serving 300–400 customers per shift.</li>
+                <li>Resolved service issues in real time during high-volume shifts, maintaining service quality and customer satisfaction.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="block" id="projects">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="num">03</span><h2>Selected Projects</h2></div>
+        <div class="projects">
+
+          <article class="project featured reveal">
+            <div>
+              <p class="kicker">Causal inference · Machine learning</p>
+              <h3>Insurance Charges &amp; the Causal Effect of Smoking</h3>
+              <p>Built a scikit-learn pipeline to predict insurance charges, then estimated the causal effect of smoking with CausalML meta-learners and DoWhy. All three methods agreed on the effect, with BMI driving most of the variation. Results held up under placebo and random-common-cause refutation tests.</p>
+              <div class="chips"><span>Python</span><span>scikit-learn</span><span>CausalML</span><span>DoWhy</span></div>
+              <a class="project-link" style="color:#fff" href="https://github.com/maqbooltaha/Insurance-smoking-causal-inference" target="_blank" rel="noopener">View on GitHub →</a>
+            </div>
+            <div class="featured-side">
+              <div><div class="metric">+$23,850</div><div class="metric-label">Estimated annual cost of smoking</div></div>
+              <div><div class="metric">≈ $8.3K</div><div class="metric-label">Test RMSE on predicted charges</div></div>
+              <div><div class="metric">3 / 3</div><div class="metric-label">Causal methods in agreement</div></div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <p class="kicker">Time series · Ensemble ML · Group</p>
+            <div class="metric">0.81 AUC</div>
+            <div class="metric-label">Cross-validated, beating a seasonal baseline on 2024–25</div>
+            <h3>Halloween &amp; Crime in Montréal</h3>
+            <p>Modelled 363K police reports with an ensemble of logistic regression, Bayesian negative binomial and a neural net to rank high-crime days. Halloween shifts the crime mix toward mischief (+22%) and robbery rather than raising total crime.</p>
+            <div class="chips"><span>Python</span><span>Bayesian modelling</span><span>Neural nets</span></div>
+            <a class="project-link" href="https://github.com/maqbooltaha/montreal-halloween-crime" target="_blank" rel="noopener">View on GitHub →</a>
+          </article>
+
+          <article class="project reveal">
+            <p class="kicker">Deep learning · Computer vision</p>
+            <div class="metric">94.8%</div>
+            <div class="metric-label">Test accuracy with fine-tuned ResNet-18</div>
+            <h3>CNN vs. Transfer Learning on CIFAR-10</h3>
+            <p>Built a CNN from scratch in PyTorch (91.6%) and compared it with a fine-tuned ImageNet ResNet-18. Transfer learning won in 5 epochs instead of 30, while the small CNN came close with 9× fewer parameters, a better fit for lightweight devices.</p>
+            <div class="chips"><span>PyTorch</span><span>CNNs</span><span>Transfer learning</span></div>
+            <a class="project-link" href="https://github.com/maqbooltaha/cifar10-cnn-vs-transfer-learning" target="_blank" rel="noopener">View on GitHub →</a>
+          </article>
+
+          <article class="project reveal">
+            <p class="kicker">Regression · ML benchmarking · Group</p>
+            <div class="metric">8.6 h/day</div>
+            <div class="metric-label">Point where AI productivity gains plateau</div>
+            <h3>Does More AI Mean More Output?</h3>
+            <p>Used robust OLS and a 9-model ML benchmark on AI usage among students and professionals. More AI use raises productivity with diminishing returns, and perceived accuracy drives satisfaction. Interpretable regressions matched or beat every tuned ML model on held-out data.</p>
+            <div class="chips"><span>Python</span><span>Robust OLS</span><span>Model selection</span></div>
+            <a class="project-link" href="https://github.com/maqbooltaha/ai-usage-productivity" target="_blank" rel="noopener">View on GitHub →</a>
+          </article>
+
+          <article class="project reveal">
+            <p class="kicker">SQL · Database design</p>
+            <div class="metric">0</div>
+            <div class="metric-label">Duplicate manuals after the redesign</div>
+            <h3>ACME Simulators Database Design</h3>
+            <p>Translated client requirements into a normalized relational schema and data dictionary built in SQL. Wrote queries that generate configuration-specific handbooks, and added version control and audit tracking so every deployed handbook traces back to an approved release.</p>
+            <div class="chips"><span>SQL</span><span>ER modelling</span><span>Normalization</span></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="block" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="num">04</span><h2>Skills</h2></div>
+        <div class="skills reveal">
+          <div class="skill-col">
+            <h3>Programming &amp; Data</h3>
+            <ul>
+              <li>Python<small>pandas, scikit-learn, PyTorch</small></li>
+              <li>SQL<small>Schema design, normalization, queries</small></li>
+              <li>Causal inference<small>CausalML, DoWhy</small></li>
+            </ul>
+          </div>
+          <div class="skill-col">
+            <h3>BI &amp; Visualization</h3>
+            <ul>
+              <li>Tableau</li>
+              <li>Power BI</li>
+              <li>Matplotlib</li>
+              <li>KPI &amp; scorecard design</li>
+            </ul>
+          </div>
+          <div class="skill-col">
+            <h3>Finance</h3>
+            <ul>
+              <li>Financial modelling</li>
+              <li>Statement &amp; variance analysis</li>
+              <li>Financial reporting</li>
+              <li>Excel<small>Pivot tables, XLOOKUP</small></li>
+            </ul>
+          </div>
+          <div class="skill-col">
+            <h3>Systems &amp; Languages</h3>
+            <ul>
+              <li>SAP<small>Accruals, reversals, reconciliations</small></li>
+              <li>English<small>Fluent</small></li>
+              <li>Urdu<small>Fluent</small></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="block" id="education">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="num">05</span><h2>Education</h2></div>
+        <div class="edu">
+          <div class="edu-card reveal">
+            <span class="date">July 2026 – Aug 2027 (expected)</span>
+            <h3>McGill University</h3>
+            <p class="deg">Master of Management in Analytics</p>
+            <p>Desautels Faculty of Management, Montréal. Coursework includes Deep Learning, Text Analytics and Managing Data Analytic Teams.</p>
+          </div>
+          <div class="edu-card reveal">
+            <span class="date">Aug 2021 – May 2026</span>
+            <h3>University of Kansas</h3>
+            <p class="deg">B.S. in Finance and Business Analytics</p>
+            <p>School of Business, Lawrence, Kansas. University Honor Roll (2 semesters).</p>
+          </div>
+        </div>
+        <div class="certs reveal">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Cybersecurity System Administration &amp; Framework Security<small>IBM</small></li>
+            <li>Cybersecurity Compliance &amp; System Administration<small>IBM</small></li>
+            <li>Introduction to Network Security<small>NYU</small></li>
+            <li>Six Sigma White Belt in E-commerce</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <h2>Let's talk.</h2>
+        <p>I'm open to internships and full-time roles in finance and analytics. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+      </div>
+      <ul class="contact-list reveal">
+        <li><a href="mailto:tahasajidmaqbool@gmail.com">Email <span>tahasajidmaqbool@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/taha-maqbool001/" target="_blank" rel="noopener">LinkedIn <span>/in/taha-maqbool001</span></a></li>
+        <li><a href="https://github.com/maqbooltaha" target="_blank" rel="noopener">GitHub <span>/maqbooltaha</span></a></li>
+        <li><a href="Taha_Maqbool_Resume.pdf" target="_blank" rel="noopener">Résumé <span>PDF ↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap"><div class="inner">
+      <span>© <span id="yr">2026</span> Taha Maqbool</span>
+      <span>Montréal, Québec</span>
+    </div></div>
+  </footer>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+    var nav = document.getElementById("nav");
+    window.addEventListener("scroll", function () { nav.classList.toggle("scrolled", window.scrollY > 8); }, { passive: true });
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+    } else {
+      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+    }
+  </script>
+</body>
+</html>
