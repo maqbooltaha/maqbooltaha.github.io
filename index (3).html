@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taha Maqbool | Finance &amp; Analytics</title>
+  <meta name="description" content="Taha Maqbool — Master of Management in Analytics candidate at McGill University. Finance and business analytics, machine learning, causal inference, SQL and BI." />
+  <meta property="og:title" content="Taha Maqbool | Finance &amp; Analytics" />
+  <meta property="og:description" content="MMA candidate at McGill Desautels with a Finance & Business Analytics background. Case studies in ML, causal inference, SQL and BI." />
+  <meta property="og:image" content="https://maqbooltaha.github.io/headshot.jpg" />
+  <meta property="og:url" content="https://maqbooltaha.github.io/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2a44'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23d9b26f' text-anchor='middle'%3ETM%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink: #0f2a44; --ink-2: #17395b; --ink-soft: #2f4a63;
+      --text: #33414f; --muted: #6b7a89;
+      --paper: #f7f5f0; --card: #ffffff; --line: #e3ded3;
+      --accent: #b8893e; --accent-lt: #d9b26f; --accent-soft: #f3ead9;
+      --on-dark: #c9d4df; --on-dark-muted: #8fa3b8;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, monospace;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { font-family: var(--sans); color: var(--text); background: var(--paper); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; }
+    img, svg { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+    .mono { font-family: var(--mono); }
+
+    /* progress bar */
+    #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--accent); z-index: 30; }
+
+    /* ---------- NAV ---------- */
+    nav { position: fixed; inset: 0 0 auto 0; z-index: 20; transition: background .25s, border-color .25s, color .25s; border-bottom: 1px solid transparent; color: #fff; }
+    nav.solid { background: rgba(247, 245, 240, .94); backdrop-filter: blur(10px); border-bottom-color: var(--line); color: var(--ink); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .brand { font-family: var(--serif); font-weight: 600; font-size: 20px; text-decoration: none; letter-spacing: -.01em; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+    .nav-links a { text-decoration: none; font-size: 14px; font-weight: 500; opacity: .85; position: relative; }
+    .nav-links a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform .2s; }
+    .nav-links a.active::after, .nav-links a:not(.btn):hover::after { transform: scaleX(1); }
+    .nav-links a:hover, .nav-links a.active { opacity: 1; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 6px; font-size: 14px; font-weight: 600; text-decoration: none; transition: transform .15s, background .15s, color .15s, border-color .15s; border: 1px solid transparent; cursor: pointer; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold { background: var(--accent); color: #fff !important; opacity: 1 !important; }
+    .btn-gold:hover { background: #a67a33; }
+    .btn-line { border-color: rgba(255, 255, 255, .35); color: #fff; }
+    .btn-line:hover { border-color: #fff; background: rgba(255, 255, 255, .06); }
+    .nav-links .btn { padding: 8px 15px; }
+    .burger { display: none; background: none; border: 0; color: inherit; cursor: pointer; }
+
+    /* ---------- HERO ---------- */
+    .hero { position: relative; background: var(--ink); color: var(--on-dark); padding: 132px 0 0; overflow: hidden; }
+    .hero::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at 75% 35%, #000 15%, transparent 70%); -webkit-mask-image: radial-gradient(ellipse at 75% 35%, #000 15%, transparent 70%); }
+    .hero::after { content: ""; position: absolute; width: 760px; height: 760px; right: -220px; top: -260px; background: radial-gradient(circle, rgba(184,137,62,.26), transparent 62%); pointer-events: none; }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.35fr 1fr; gap: 56px; align-items: center; }
+    .hello { font-family: var(--mono); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-lt); display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .hello::before { content: ""; width: 34px; height: 1.5px; background: var(--accent-lt); }
+    .name { font-family: var(--serif); font-weight: 700; color: #fff; font-size: clamp(64px, 10vw, 132px); line-height: .9; letter-spacing: -.045em; margin-bottom: 26px; }
+    .name span { color: var(--accent); }
+    .roles { font-size: clamp(20px, 2.3vw, 27px); color: #fff; font-weight: 500; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 10px; margin-bottom: 22px; line-height: 1.3; }
+    .roles .lbl { color: var(--on-dark-muted); font-weight: 400; }
+    .rotator { position: relative; display: inline-block; height: 1.3em; overflow: hidden; vertical-align: bottom; color: var(--accent-lt); font-family: var(--serif); font-style: italic; font-weight: 400; }
+    .rotator .track { display: block; animation: roll 10s cubic-bezier(.7,0,.3,1) infinite; }
+    .rotator .track span { display: block; height: 1.3em; white-space: nowrap; }
+    @keyframes roll { 0%,20% { transform: translateY(0); } 25%,45% { transform: translateY(-1.3em); } 50%,70% { transform: translateY(-2.6em); } 75%,95% { transform: translateY(-3.9em); } 100% { transform: translateY(-5.2em); } }
+    .lede { font-size: 18px; max-width: 33em; margin-bottom: 32px; }
+    .lede strong { color: #fff; font-weight: 500; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .socials-row { display: flex; gap: 10px; }
+    .icon-btn { width: 46px; height: 46px; border-radius: 6px; border: 1px solid rgba(255,255,255,.22); display: grid; place-items: center; color: var(--on-dark); transition: all .15s; }
+    .icon-btn:hover { border-color: var(--accent-lt); color: #fff; transform: translateY(-1px); }
+    .icon-btn svg { width: 18px; height: 18px; }
+
+    .hero-visual { position: relative; justify-self: end; width: 100%; max-width: 400px; }
+    .arch { position: relative; border-radius: 220px 220px 16px 16px; overflow: hidden; aspect-ratio: 4 / 4.4; background: #1b3b5c; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+    .arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; filter: saturate(.92) contrast(1.04); }
+    .arch::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(15,42,68,.55)); }
+    .hero-visual::before { content: ""; position: absolute; inset: -16px; border: 1.5px solid rgba(184,137,62,.7); border-radius: 236px 236px 24px 24px; }
+    .pill { position: absolute; z-index: 2; top: 26px; right: -18px; background: var(--card); border-radius: 30px; padding: 8px 14px 8px 12px; font-size: 13px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 8px; box-shadow: 0 12px 30px rgba(0,0,0,.28); }
+    .pill i { width: 8px; height: 8px; border-radius: 50%; background: #2e9e6a; box-shadow: 0 0 0 4px rgba(46,158,106,.18); animation: pulse 2.2s infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(46,158,106,.06); } }
+    .snapshot { position: absolute; z-index: 2; left: -54px; bottom: -28px; width: 250px; background: var(--card); border-radius: 12px; padding: 14px 16px 10px; box-shadow: 0 20px 44px rgba(0,0,0,.32); }
+    .snapshot h4 { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 6px; display: flex; justify-content: space-between; }
+    .snapshot h4 b { color: #2e9e6a; font-weight: 500; }
+    .snap-row { display: flex; justify-content: space-between; align-items: baseline; padding: 7px 0; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--muted); }
+    .snap-row:first-of-type { border-top: none; }
+    .snap-row strong { font-family: var(--mono); font-size: 13.5px; color: var(--ink); font-weight: 500; }
+    .snap-row strong::before { content: "▲ "; color: #2e9e6a; font-size: 10px; }
+
+    .creds { position: relative; z-index: 1; margin-top: 84px; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid rgba(255,255,255,.1); }
+    .cred { display: flex; gap: 14px; align-items: center; padding: 24px 18px 26px 0; }
+    .cred + .cred { padding-left: 22px; border-left: 1px solid rgba(255,255,255,.1); }
+    .mark { flex: none; width: 44px; height: 44px; border-radius: 8px; display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: 15px; color: var(--ink); background: var(--accent-lt); }
+    .mark.alt { background: transparent; color: var(--accent-lt); border: 1.5px solid rgba(217,178,111,.55); }
+    .cred b { display: block; color: #fff; font-weight: 600; font-size: 14.5px; line-height: 1.3; }
+    .cred small { font-size: 12.5px; color: var(--on-dark-muted); line-height: 1.35; display: block; }
+
+    .ticker { position: relative; z-index: 1; background: #0a1f33; border-top: 1px solid rgba(255,255,255,.08); overflow: hidden; white-space: nowrap; font-family: var(--mono); font-size: 13px; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+    .tape { display: inline-flex; animation: tape 48s linear infinite; padding: 15px 0; }
+    .ticker:hover .tape { animation-play-state: paused; }
+    .tape span { padding: 0 26px; color: var(--on-dark-muted); border-right: 1px solid rgba(255,255,255,.08); }
+    .tape b { color: #fff; font-weight: 500; margin-left: 8px; }
+    .tape .up { color: #5fd39a; }
+    .tape .dn { color: #f08a7e; }
+    .tape .nt { color: var(--accent-lt); }
+    @keyframes tape { to { transform: translateX(-50%); } }
+
+    /* ---------- SECTIONS ---------- */
+    section.block { padding: 110px 0 0; }
+    .section-head { margin-bottom: 44px; max-width: 720px; }
+    .kicker { font-family: var(--mono); font-size: 12.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+    h2 { font-family: var(--serif); font-weight: 600; color: var(--ink); font-size: clamp(32px, 3.6vw, 42px); letter-spacing: -.02em; line-height: 1.1; }
+    .section-head p { margin-top: 14px; font-size: 17px; color: var(--muted); }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: start; }
+    .about-text p { margin-bottom: 18px; font-size: 17.5px; }
+    .about-text p:first-child::first-letter { font-family: var(--serif); float: left; font-size: 64px; line-height: .9; padding: 6px 10px 0 0; color: var(--accent); font-weight: 600; }
+    .about-text strong { color: var(--ink); font-weight: 600; }
+    .pillars { display: grid; gap: 14px; }
+    .pillar { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px 22px; display: grid; grid-template-columns: 40px 1fr; gap: 14px; transition: border-color .2s, transform .2s; }
+    .pillar:hover { border-color: var(--accent); transform: translateX(3px); }
+    .pillar .ico { width: 40px; height: 40px; border-radius: 8px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
+    .pillar .ico svg { width: 20px; height: 20px; }
+    .pillar h3 { font-size: 15.5px; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+    .pillar p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+    /* Currently: capstone */
+    .current { margin-top: 70px; background: var(--ink); border-radius: 14px; color: var(--on-dark); display: grid; grid-template-columns: 1.15fr 1fr; overflow: hidden; position: relative; }
+    .current-text { padding: 44px 44px; }
+    .live { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: #7fd6a8; margin-bottom: 16px; }
+    .live i { width: 7px; height: 7px; border-radius: 50%; background: #2e9e6a; animation: pulse 2.2s infinite; }
+    .current h3 { font-family: var(--serif); font-size: 28px; color: #fff; font-weight: 600; line-height: 1.2; margin-bottom: 6px; }
+    .current .role-line { color: var(--accent-lt); font-weight: 500; margin-bottom: 18px; display: block; }
+    .current p { font-size: 15.5px; margin-bottom: 18px; }
+    .current-vis { background: rgba(255,255,255,.03); border-left: 1px solid rgba(255,255,255,.08); display: flex; flex-direction: column; justify-content: center; padding: 30px; }
+    .current-vis small { font-size: 12px; color: var(--on-dark-muted); margin-top: 8px; text-align: center; }
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chips span { font-size: 12.5px; padding: 4px 10px; border-radius: 4px; background: var(--paper); border: 1px solid var(--line); color: var(--ink-soft); }
+    .dark .chips span, .current .chips span { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); color: #dfe7ee; }
+
+    /* Experience */
+    .timeline { position: relative; padding-left: 34px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--accent), var(--line)); }
+    .role { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 30px 32px; margin-bottom: 20px; display: grid; grid-template-columns: 1fr 210px; gap: 32px; transition: box-shadow .2s; }
+    .role:hover { box-shadow: 0 14px 34px rgba(15,42,68,.07); }
+    .role::before { content: ""; position: absolute; left: -34px; top: 34px; width: 16px; height: 16px; border-radius: 50%; background: var(--paper); border: 3px solid var(--accent); }
+    .role h3 { font-size: 20px; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+    .role .org { color: var(--accent); font-weight: 500; display: block; margin-bottom: 4px; }
+    .role .ctx { font-size: 13.5px; color: var(--muted); display: block; margin-bottom: 14px; }
+    .role ul { padding-left: 18px; }
+    .role li { margin-bottom: 8px; font-size: 15.5px; }
+    .role li::marker { color: var(--accent); }
+    .role-side { border-left: 1px solid var(--line); padding-left: 26px; font-size: 14px; color: var(--muted); }
+    .role-side .date { font-family: var(--mono); font-size: 13px; color: var(--ink); display: block; margin-bottom: 4px; }
+    .role-side .mini { margin-top: 18px; }
+    .role-side .mini strong { display: block; font-family: var(--serif); font-size: 30px; color: var(--ink); line-height: 1; }
+    .role-side .mini span { font-size: 12.5px; }
+
+    /* Projects */
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+    .filters button { font: 500 14px var(--sans); padding: 8px 16px; border-radius: 30px; border: 1px solid var(--line); background: var(--card); color: var(--ink-soft); cursor: pointer; transition: all .15s; }
+    .filters button:hover { border-color: var(--ink); }
+    .filters button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .filters small { font-family: var(--mono); font-size: 11.5px; opacity: .6; margin-left: 4px; }
+    .project.pop { animation: pop .35s ease; }
+    @keyframes pop { from { opacity: 0; transform: translateY(10px); } }
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .project { background: var(--card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s, opacity .25s; }
+    .project:hover { transform: translateY(-4px); box-shadow: 0 20px 44px rgba(15,42,68,.10); }
+    .project.hide { display: none; }
+    .project.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+    .vis svg { width: 100%; height: auto; }
+    .vis { background: linear-gradient(180deg, #fbfaf6, #f3f0e8); border-bottom: 1px solid var(--line); padding: 22px 22px 14px; }
+    .project.wide .vis { border-bottom: none; border-right: 1px solid var(--line); display: flex; align-items: center; }
+    .body { padding: 26px 28px 28px; display: flex; flex-direction: column; flex: 1; }
+    .meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .meta .cat { font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .badge { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 20px; background: var(--accent-soft); color: #8a6424; white-space: nowrap; }
+    .project h3 { font-size: 20px; color: var(--ink); font-weight: 600; line-height: 1.3; margin-bottom: 8px; }
+    .q { font-family: var(--serif); font-style: italic; color: var(--ink-soft); font-size: 16.5px; margin-bottom: 16px; line-height: 1.45; }
+    .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 18px; }
+    .kpis div { background: var(--card); padding: 12px 12px; }
+    .kpis strong { display: block; font-family: var(--serif); font-size: 21px; color: var(--ink); line-height: 1.1; font-weight: 600; }
+    .kpis span { font-size: 11.5px; color: var(--muted); line-height: 1.3; display: block; margin-top: 3px; }
+    .project p.sum { font-size: 15px; margin-bottom: 16px; }
+    details { border-top: 1px solid var(--line); margin-top: 18px; }
+    summary { list-style: none; cursor: pointer; padding: 14px 0 0; font-weight: 600; font-size: 14px; color: var(--ink); display: flex; justify-content: space-between; align-items: center; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; font: 400 20px var(--mono); color: var(--accent); transition: transform .2s; }
+    details[open] summary::after { transform: rotate(45deg); }
+    .case { padding-top: 14px; font-size: 14.5px; }
+    .case h4 { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin: 14px 0 6px; font-weight: 500; }
+    .case h4:first-child { margin-top: 0; }
+    .case ul { padding-left: 18px; }
+    .case li { margin-bottom: 5px; }
+    .case li::marker { color: var(--accent); }
+    .links { display: flex; gap: 18px; margin-top: 18px; padding-top: 2px; }
+    .links a { font-size: 14px; font-weight: 600; color: var(--ink); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; border-bottom: 1.5px solid var(--accent); padding-bottom: 1px; }
+    .links a:hover { color: var(--accent); }
+    .links span.note { font-size: 13px; color: var(--muted); }
+
+    /* Process */
+    .process { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid var(--line); border-radius: 14px; background: var(--card); overflow: hidden; counter-reset: step; }
+    .step { padding: 28px 24px; border-left: 1px solid var(--line); position: relative; transition: background .2s; }
+    .step:first-child { border-left: none; }
+    .step:hover { background: #fbfaf6; }
+    .step::before { counter-increment: step; content: "0" counter(step); font-family: var(--mono); font-size: 12px; color: var(--accent); display: block; margin-bottom: 18px; }
+    .step h3 { font-size: 17px; color: var(--ink); font-weight: 600; margin-bottom: 8px; }
+    .step p { font-size: 14px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
+    .step .eg { font-size: 12.5px; color: var(--ink-soft); background: var(--accent-soft); padding: 8px 10px; border-radius: 6px; line-height: 1.45; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .skill-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 26px; }
+    .skill-card h3 { font-size: 16px; color: var(--ink); font-weight: 600; display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .skill-card h3 i { width: 8px; height: 8px; background: var(--accent); border-radius: 2px; transform: rotate(45deg); }
+    .skill { display: flex; justify-content: space-between; gap: 12px; padding: 9px 0; border-top: 1px dashed var(--line); font-size: 15px; }
+    .skill:first-of-type { border-top: none; }
+    .skill b { color: var(--ink); font-weight: 500; }
+    .skill small { color: var(--muted); font-size: 12.5px; text-align: right; }
+
+    /* Education */
+    .edu { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .edu-card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 32px; position: relative; overflow: hidden; }
+    .edu-card::after { content: attr(data-mark); position: absolute; right: -6px; bottom: -34px; font-family: var(--serif); font-size: 130px; font-weight: 700; color: var(--paper); line-height: 1; z-index: 0; }
+    .edu-card > * { position: relative; z-index: 1; }
+    .edu-card .date { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+    .edu-card h3 { font-family: var(--serif); font-size: 25px; color: var(--ink); font-weight: 600; margin: 8px 0 2px; }
+    .edu-card .deg { color: var(--accent); font-weight: 500; margin-bottom: 16px; }
+    .edu-card ul { list-style: none; font-size: 14.5px; }
+    .edu-card li { padding: 6px 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; }
+    .edu-card li small { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .certs { margin-top: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .cert { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px; font-size: 14px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+    .cert small { display: block; font-family: var(--mono); font-size: 11.5px; color: var(--accent); letter-spacing: .08em; margin-bottom: 6px; font-weight: 400; }
+
+    /* Beyond */
+    .beyond { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .beyond-card { border: 1px dashed #cfc6b4; border-radius: 12px; padding: 24px 28px; display: flex; gap: 18px; align-items: flex-start; }
+    .beyond-card .ico { flex: none; width: 42px; height: 42px; border-radius: 50%; background: var(--ink); color: var(--accent-lt); display: grid; place-items: center; }
+    .beyond-card .ico svg { width: 20px; height: 20px; }
+    .beyond-card h3 { font-size: 15.5px; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+    .beyond-card p { font-size: 14.5px; color: var(--muted); }
+
+    /* Contact */
+    .contact { margin: 120px 0 0; background: var(--ink); color: var(--on-dark); padding: 96px 0 0; position: relative; overflow: hidden; }
+    .contact::before { content: ""; position: absolute; width: 560px; height: 560px; right: -180px; top: -260px; background: radial-gradient(circle, rgba(184,137,62,.18), transparent 65%); }
+    .contact .wrap { position: relative; display: grid; grid-template-columns: 1.25fr 1fr; gap: 56px; align-items: center; }
+    .contact h2 { color: #fff; font-size: clamp(34px, 4.6vw, 54px); margin-bottom: 16px; }
+    .contact h2 em { font-style: italic; color: var(--accent-lt); font-weight: 400; }
+    .contact p { font-size: 17.5px; max-width: 30em; margin-bottom: 28px; }
+    .copy { display: inline-flex; align-items: center; gap: 12px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 8px; padding: 12px 16px; font-family: var(--mono); font-size: 14px; color: #fff; cursor: pointer; transition: border-color .15s; }
+    .copy:hover { border-color: var(--accent); }
+    .copy span { color: var(--accent-lt); font-family: var(--sans); font-size: 12.5px; font-weight: 600; }
+    .contact-list { list-style: none; }
+    .contact-list li { border-top: 1px solid rgba(255,255,255,.12); }
+    .contact-list li:last-child { border-bottom: 1px solid rgba(255,255,255,.12); }
+    .contact-list a { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; text-decoration: none; color: #fff; font-weight: 500; font-size: 17px; transition: padding .2s, color .2s; }
+    .contact-list a span { color: var(--on-dark-muted); font-weight: 400; font-size: 14px; }
+    .contact-list a:hover { color: var(--accent-lt); padding-left: 8px; }
+    footer { background: var(--ink); color: #6f8499; font-size: 13px; padding: 80px 0 36px; }
+    footer .inner { border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; display: flex; justify-content: space-between; gap: 10px; }
+    footer a { text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    .toast { position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 20px); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 8px; font-size: 14px; opacity: 0; transition: all .25s; z-index: 40; pointer-events: none; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } * { animation: none !important; } .ticker { overflow-x: auto; } }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
+      .hero-grid, .about, .contact .wrap, .current { grid-template-columns: 1fr; gap: 44px; }
+      .hero-grid { gap: 64px; }
+      .hero-visual { justify-self: center; max-width: 330px; }
+      .creds { grid-template-columns: 1fr 1fr; margin-top: 90px; }
+      .cred:nth-child(3) { padding-left: 0; border-left: none; }
+      .cred:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.1); }
+      .project.wide { grid-template-columns: 1fr; }
+      .project.wide .vis { border-right: none; border-bottom: 1px solid var(--line); }
+      .process { grid-template-columns: 1fr 1fr; }
+      .step:nth-child(odd) { border-left: none; }
+      .step { border-top: 1px solid var(--line); }
+      .step:nth-child(-n+2) { border-top: none; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .certs { grid-template-columns: 1fr 1fr; }
+      .current-vis { border-left: none; border-top: 1px solid rgba(255,255,255,.08); }
+      .role { grid-template-columns: 1fr; gap: 18px; }
+      .role-side { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 28px; align-items: flex-end; }
+      .role-side .mini { margin-top: 0; }
+    }
+    @media (max-width: 720px) {
+      .wrap { padding: 0 20px; }
+      .burger { display: block; }
+      .nav-links { position: absolute; top: 68px; left: 0; right: 0; background: var(--paper); color: var(--ink); flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 18px; border-bottom: 1px solid var(--line); display: none; }
+      .nav-links.open { display: flex; }
+      .nav-links li a:not(.btn) { display: block; padding: 12px 0; border-bottom: 1px solid var(--line); }
+      .nav-links li .btn { margin-top: 12px; justify-content: center; width: 100%; }
+      .hero { padding-top: 104px; }
+      .hero-visual { max-width: 280px; }
+      .hero-visual::before { display: none; }
+      .arch { outline: 1.5px solid rgba(184,137,62,.7); outline-offset: 10px; }
+      .snapshot { position: relative; left: auto; bottom: auto; width: auto; margin: 34px -16px 0; }
+      .pill { right: -14px; }
+      .creds { grid-template-columns: 1fr; margin-top: 80px; }
+      .cred, .cred + .cred { padding: 16px 0; border-left: none; }
+      .cred + .cred { border-top: 1px solid rgba(255,255,255,.1); }
+      .projects, .edu, .beyond { grid-template-columns: 1fr; }
+      .project.wide { grid-column: auto; }
+      .process, .skills { grid-template-columns: 1fr; }
+      .step { border-left: none !important; border-top: 1px solid var(--line) !important; }
+      .step:first-child { border-top: none !important; }
+      .current-text { padding: 32px 26px; }
+      .timeline { padding-left: 24px; }
+      .role { padding: 24px 22px; }
+      .role::before { left: -24px; width: 14px; height: 14px; }
+      .timeline::before { left: 5px; }
+      section.block { padding-top: 84px; }
+      .kpis strong { font-size: 18px; }
+      footer .inner { flex-direction: column; }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="progress"></div>
+
+  <nav id="nav">
+    <div class="wrap">
+      <a href="#top" class="brand">Taha Maqbool<span>.</span></a>
+      <button class="burger" id="burger" aria-label="Open menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <ul class="nav-links" id="links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a class="btn btn-gold" href="Taha_Maqbool_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ============================ HERO ============================ -->
+  <header class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <p class="hello">MMA Candidate · McGill Desautels</p>
+        <h1 class="name">Taha<br>Maqbool<span>.</span></h1>
+        <p class="roles"><span class="lbl">Open to roles as</span>
+          <span class="rotator" aria-label="Financial Analyst, Data Analyst, BI Developer, Analytics Consultant"><span class="track" aria-hidden="true"><span>Financial Analyst</span><span>Data Analyst</span><span>BI Developer</span><span>Analytics Consultant</span><span>Financial Analyst</span></span></span>
+        </p>
+        <p class="lede">Finance degree from <strong>Kansas</strong>, analytics master's at <strong>McGill</strong>. I've supported month-end close in SAP, estimated causal effects worth <strong>$23,850 a year</strong>, and forecast crime across <strong>363K records</strong>. I turn data into decisions people can act on.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#projects">See my work</a>
+          <a class="btn btn-line" href="Taha_Maqbool_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+          <span class="socials-row"><a class="icon-btn" href="https://www.linkedin.com/in/taha-maqbool001/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          <a class="icon-btn" href="https://github.com/maqbooltaha" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.1.9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg></a>
+          <a class="icon-btn" href="mailto:tahasajidmaqbool@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a></span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="arch"><img src="headshot.jpg" alt="Portrait of Taha Maqbool" /></div>
+        <div class="pill"><i></i>Open to opportunities</div>
+        <div class="snapshot">
+          <h4>Project highlights</h4>
+          <div class="snap-row">Causal estimate<strong>+$23,850</strong></div>
+          <div class="snap-row">Forecast AUC<strong>0.81</strong></div>
+          <div class="snap-row">Test accuracy<strong>94.8%</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap creds reveal">
+      <div class="cred"><div class="mark">Mc</div><div><b>McGill University</b><small>MMA, Desautels · 2027</small></div></div>
+      <div class="cred"><div class="mark">KU</div><div><b>University of Kansas</b><small>B.S. Finance &amp; Business Analytics</small></div></div>
+      <div class="cred"><div class="mark alt">KE</div><div><b>K-Electric</b><small>Finance Intern · SAP</small></div></div>
+      <div class="cred"><div class="mark alt">AO</div><div><b>Agence Ometz</b><small>BI Developer · Capstone</small></div></div>
+    </div>
+
+    <div class="ticker" aria-label="Highlights from my projects">
+      <div class="tape"><span>SMOKING EFFECT<b class="up">▲ +$23,850/yr</b></span><span>CRIME MODEL AUC<b class="up">▲ 0.81</b></span><span>RESNET-18 ACCURACY<b class="up">▲ 94.83%</b></span><span>HALLOWEEN MISCHIEF<b class="up">▲ +22%</b></span><span>HALLOWEEN ROBBERY<b class="up">▲ +23%</b></span><span>AI GAINS PLATEAU<b class="nt">● 8.6 h/day</b></span><span>RECORDS MODELLED<b class="nt">● 363K+</b></span><span>PLACEBO EFFECT<b class="dn">▼ −$105</b></span><span>TEST R² PRODUCTIVITY<b class="up">▲ 0.63</b></span><span>CNN PARAMS VS RESNET<b class="dn">▼ 9× fewer</b></span><span>CREW LED<b class="nt">● 10 people</b></span><span aria-hidden="true">SMOKING EFFECT<b class="up">▲ +$23,850/yr</b></span><span aria-hidden="true">CRIME MODEL AUC<b class="up">▲ 0.81</b></span><span aria-hidden="true">RESNET-18 ACCURACY<b class="up">▲ 94.83%</b></span><span aria-hidden="true">HALLOWEEN MISCHIEF<b class="up">▲ +22%</b></span><span aria-hidden="true">HALLOWEEN ROBBERY<b class="up">▲ +23%</b></span><span aria-hidden="true">AI GAINS PLATEAU<b class="nt">● 8.6 h/day</b></span><span aria-hidden="true">RECORDS MODELLED<b class="nt">● 363K+</b></span><span aria-hidden="true">PLACEBO EFFECT<b class="dn">▼ −$105</b></span><span aria-hidden="true">TEST R² PRODUCTIVITY<b class="up">▲ 0.63</b></span><span aria-hidden="true">CNN PARAMS VS RESNET<b class="dn">▼ 9× fewer</b></span><span aria-hidden="true">CREW LED<b class="nt">● 10 people</b></span></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================ ABOUT ============================ -->
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">01 · About</span><h2>Finance training, analytics toolkit.</h2></div>
+        <div class="about">
+          <div class="about-text reveal">
+            <p>My background sits where <strong>finance meets analytics</strong>. At K-Electric, the utility that powers Karachi, I supported month-end close in SAP and reviewed year-over-year financials to catch discrepancies before they reached reports. That taught me how much decisions depend on numbers being right.</p>
+            <p>At McGill I've built the technical side: <strong>machine learning, causal inference, time-series validation, SQL databases and BI dashboards</strong>. I care about the step after the model, when a result has to become a recommendation a manager can act on, with its limits stated honestly.</p>
+            <p>I've also led a 10-person crew through high-volume shifts of 300–400 customers, so I'm comfortable owning outcomes, training others and staying calm under pressure.</p>
+            <p>I'm looking for roles in <strong>financial analytics, FP&amp;A, consulting and asset management</strong>.</p>
+          </div>
+          <div class="pillars">
+            <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-6"/></svg></div><div><h3>Financial analysis</h3><p>Month-end close, variance and YoY review, reporting in SAP and Excel.</p></div></div>
+            <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.8 2.8M16.2 16.2 19 19M5 19l2.8-2.8M16.2 7.8 19 5"/></svg></div><div><h3>Modelling &amp; inference</h3><p>Regression, ensembles, deep learning, and causal methods with refutation tests.</p></div></div>
+            <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg></div><div><h3>BI &amp; data infrastructure</h3><p>KPI and scorecard design, dashboards, normalized SQL schemas.</p></div></div>
+            <div class="pillar reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div><h3>Leadership &amp; communication</h3><p>Led a 10-person crew; works with clients and cross-functional teams.</p></div></div>
+          </div>
+        </div>
+
+        <!-- Currently -->
+        <div class="current reveal">
+          <div class="current-text">
+            <span class="live"><i></i> Currently working on</span>
+            <h3>A balanced scorecard for a Montréal social services agency</h3>
+            <span class="role-line">Business Intelligence Developer · Agence Ometz · MMA Capstone</span>
+            <p>An 8-month engagement (Sept 2026 – Apr 2027) to measure what matters for a nonprofit: program effectiveness, cost efficiency and social impact. I'm translating the agency's mission into measurable KPIs with its leadership, designing the dashboards, and evaluating Power BI vs. Tableau as the reporting platform for data that lives in Microsoft systems.</p>
+            <div class="chips"><span>KPI design</span><span>Balanced scorecard</span><span>Power BI</span><span>Tableau</span><span>Client engagement</span></div>
+          </div>
+          <div class="current-vis">
+            <svg viewBox="0 0 440 220" role="img" aria-label="Illustrative balanced scorecard with four perspectives around social impact" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="18" width="196" height="86" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.16)"/><text x="36" y="48" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#fff">Financial</text><text x="36" y="68" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8fa3b8">KPI · cost efficiency</text><rect x="36" y="80" width="164" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect x="36" y="80" width="110" height="5" rx="2.5" fill="#b8893e"/><rect x="226" y="18" width="196" height="86" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.16)"/><text x="242" y="48" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#fff">Beneficiaries</text><text x="242" y="68" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8fa3b8">KPI · program reach</text><rect x="242" y="80" width="164" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect x="242" y="80" width="86" height="5" rx="2.5" fill="#b8893e"/><rect x="20" y="114" width="196" height="86" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.16)"/><text x="36" y="144" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#fff">Internal processes</text><text x="36" y="164" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8fa3b8">KPI · program effectiveness</text><rect x="36" y="176" width="164" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect x="36" y="176" width="128" height="5" rx="2.5" fill="#b8893e"/><rect x="226" y="114" width="196" height="86" rx="8" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.16)"/><text x="242" y="144" font-family="IBM Plex Sans, sans-serif" font-size="13" font-weight="600" fill="#fff">Learning & growth</text><text x="242" y="164" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#8fa3b8">KPI · team capacity</text><rect x="242" y="176" width="164" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/><rect x="242" y="176" width="70" height="5" rx="2.5" fill="#b8893e"/><circle cx="220" cy="109" r="30" fill="#0f2a44" stroke="#b8893e" stroke-width="1.5"/><text x="220" y="105" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#b8893e" text-anchor="middle">SOCIAL</text><text x="220" y="118" font-family="IBM Plex Mono, monospace" font-size="9.5" fill="#b8893e" text-anchor="middle">IMPACT</text></svg>
+            <small>Illustrative layout · client data is confidential</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EXPERIENCE ============================ -->
+    <section class="block" id="experience">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">02 · Experience</span><h2>Where I've worked.</h2></div>
+        <div class="timeline">
+          <article class="role reveal">
+            <div>
+              <h3>Business Intelligence Developer</h3>
+              <span class="org">Agence Ometz · McGill MMA Capstone</span>
+              <span class="ctx">Montréal nonprofit providing social services</span>
+              <ul>
+                <li>Developing a nonprofit-adapted balanced scorecard to measure program effectiveness, cost efficiency and social impact.</li>
+                <li>Designing interactive dashboards and evaluating Power BI and Tableau as the agency's reporting platform.</li>
+                <li>Translating mission objectives into measurable KPIs with agency leadership and a cross-functional student team.</li>
+              </ul>
+            </div>
+            <div class="role-side"><span class="date">Sept 2026 – Apr 2027</span>Montréal, Canada<div class="mini"><strong>8</strong><span>month client engagement</span></div></div>
+          </article>
+
+          <article class="role reveal">
+            <div>
+              <h3>Finance Intern</h3>
+              <span class="org">K-Electric Limited</span>
+              <span class="ctx">Vertically integrated electric utility serving Karachi</span>
+              <ul>
+                <li>Processed accruals, reversals, fixed asset entries and account reconciliations in SAP to support month-end close, budgeting and compliance.</li>
+                <li>Performed year-over-year analysis of financial records; flagged discrepancies and recommended corrective adjustments that improved reporting accuracy.</li>
+                <li>Proposed reporting workflow improvements and partnered with cross-functional departments to deliver accurate financial reports on deadline.</li>
+              </ul>
+            </div>
+            <div class="role-side"><span class="date">July 2024 – Aug 2024</span>Karachi, Pakistan<div class="mini"><strong>SAP</strong><span>month-end close support</span></div></div>
+          </article>
+
+          <article class="role reveal">
+            <div>
+              <h3>Crew Leader</h3>
+              <span class="org">University of Kansas · Memorial Unions Dining</span>
+              <span class="ctx">Promoted from Crew Member (Sept 2022 – Sept 2024)</span>
+              <ul>
+                <li>Promoted to Crew Leader; supervised and trained a 10-person crew serving 300–400 customers per shift.</li>
+                <li>Resolved service issues in real time during high-volume shifts, maintaining service quality and customer satisfaction.</li>
+              </ul>
+            </div>
+            <div class="role-side"><span class="date">Sept 2022 – May 2026</span>Lawrence, Kansas<div class="mini"><strong>300–400</strong><span>customers per shift</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS ============================ -->
+    <section class="block" id="projects">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">03 · Case studies</span><h2>Selected projects.</h2><p>Each one starts with a business question, ends with a decision-ready answer, and is fully reproducible on GitHub. Open any card for the full method.</p></div>
+
+        <div class="filters reveal" role="tablist">
+          <button class="on" data-f="all">All <small>5</small></button>
+          <button data-f="causal">Statistics &amp; causal inference <small>2</small></button>
+          <button data-f="ml">Machine learning <small>2</small></button>
+          <button data-f="data">SQL &amp; data design <small>1</small></button>
+        </div>
+
+        <div class="projects">
+          <!-- Insurance -->
+          <article class="project wide reveal" data-cat="causal">
+            <div class="vis"><svg viewBox="0 0 440 220" role="img" aria-label="Three causal methods all estimate about $23,850 per year" xmlns="http://www.w3.org/2000/svg"><line x1="150.0" y1="34" x2="150.0" y2="176" stroke="#e3ded3"/><text x="150.0" y="194" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">$22K</text><line x1="227.1" y1="34" x2="227.1" y2="176" stroke="#e3ded3"/><text x="227.1" y="194" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">$23K</text><line x1="304.3" y1="34" x2="304.3" y2="176" stroke="#e3ded3"/><text x="304.3" y="194" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">$24K</text><line x1="381.4" y1="34" x2="381.4" y2="176" stroke="#e3ded3"/><text x="381.4" y="194" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">$25K</text><text x="20" y="66" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">S-Learner (CausalML)</text><line x1="205.7" y1="62" x2="379.5" y2="62" stroke="#0f2a44" stroke-width="2" stroke-linecap="round" opacity=".45"/><circle cx="292.6" cy="62" r="6" fill="#b8893e" stroke="#fff" stroke-width="2"/><text x="292.6" y="50" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="middle">+$23,849</text><text x="20" y="112" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">T-Learner XGBoost</text><line x1="248.8" y1="108" x2="340.0" y2="108" stroke="#0f2a44" stroke-width="2" stroke-linecap="round" opacity=".45"/><circle cx="294.4" cy="108" r="6" fill="#b8893e" stroke="#fff" stroke-width="2"/><text x="294.4" y="96" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="middle">+$23,872</text><text x="20" y="158" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">DoWhy backdoor</text><circle cx="292.6" cy="154" r="6" fill="#b8893e" stroke="#fff" stroke-width="2"/><text x="292.6" y="142" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="middle">+$23,849</text><text x="20" y="20" font-family="IBM Plex Sans, sans-serif" font-size="11" font-weight="600" fill="#0f2a44">Causal effect of smoking on annual charges (95% CI)</text></svg></div>
+            <div class="body">
+              <div class="meta"><span class="cat">Causal inference · Healthcare finance</span><span class="badge">Featured</span></div>
+              <h3>Insurance Charges &amp; the Causal Effect of Smoking</h3>
+              <p class="q">How much does smoking actually cost in health insurance, after controlling for age, BMI and everything else?</p>
+              <div class="kpis">
+                <div><strong>+$23,850</strong><span>per year, causal effect</span></div>
+                <div><strong>≈ $8.3K</strong><span>prediction test RMSE</span></div>
+                <div><strong>~92%</strong><span>of effect variation driven by BMI</span></div>
+              </div>
+              <p class="sum">Built a prediction pipeline on 1,338 policyholders, then estimated the smoking effect three independent ways. All three landed within $25 of each other, and smokers with BMI above 30 face by far the highest costs.</p>
+              <div class="chips"><span>scikit-learn</span><span>CausalML</span><span>DoWhy</span><span>XGBoost</span></div>
+              <details>
+                <summary>Read the case study</summary>
+                <div class="case">
+                  <h4>Approach</h4>
+                  <ul>
+                    <li>Stratified train/test split on smoking status (only ~20% of the sample smokes).</li>
+                    <li>Outlier review with IQR and Isolation Forest; high BMIs kept as medically plausible.</li>
+                    <li>Pipeline + ColumnTransformer; linear regression on log(charges), validated with 10-fold CV (≈ $8,590 ± $850, so no overfitting).</li>
+                    <li>Causal: S-Learner and T-Learner (XGBoost) in CausalML, plus a DoWhy backdoor model.</li>
+                  </ul>
+                  <h4>Robustness</h4>
+                  <ul>
+                    <li>Adding a random common cause left the estimate unchanged.</li>
+                    <li>A placebo treatment dropped the effect to about −$105, as it should.</li>
+                  </ul>
+                  <h4>Limitations I flagged</h4>
+                  <ul><li>Observational data; diet and exercise are unmeasured. BMI is partly affected by smoking, so it's an imperfect control.</li></ul>
+                </div>
+              </details>
+              <div class="links"><a href="https://github.com/maqbooltaha/Insurance-smoking-causal-inference" target="_blank" rel="noopener">Code &amp; notebook ↗</a></div>
+            </div>
+          </article>
+
+          <!-- Halloween -->
+          <article class="project reveal" data-cat="ml">
+            <div class="vis"><svg viewBox="0 0 440 220" role="img" aria-label="Robbery and mischief rise about 22 to 24 percent during Halloween; other crime types show no clear change" xmlns="http://www.w3.org/2000/svg"><text x="20" y="20" font-family="IBM Plex Sans, sans-serif" font-size="11" font-weight="600" fill="#0f2a44">Halloween-window change in daily crimes (94% CI)</text><line x1="159.0" y1="34" x2="159.0" y2="186" stroke="#e3ded3" /><text x="159.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">-20%</text><line x1="235.0" y1="34" x2="235.0" y2="186" stroke="#0f2a44" stroke-dasharray="3 3"/><text x="235.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">0%</text><line x1="311.0" y1="34" x2="311.0" y2="186" stroke="#e3ded3" /><text x="311.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">+20%</text><line x1="387.0" y1="34" x2="387.0" y2="186" stroke="#e3ded3" /><text x="387.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">+40%</text><text x="20" y="50" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#0f2a44" font-weight="600">Robbery</text><line x1="261.6" y1="46" x2="404.1" y2="46" stroke="#b8893e" stroke-width="2.5" stroke-linecap="round"/><circle cx="328.1" cy="46" r="5" fill="#b8893e" stroke="#b8893e" stroke-width="2"/><text x="20" y="76" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#0f2a44" font-weight="600">Mischief</text><line x1="269.2" y1="72" x2="369.9" y2="72" stroke="#b8893e" stroke-width="2.5" stroke-linecap="round"/><circle cx="318.6" cy="72" r="5" fill="#b8893e" stroke="#b8893e" stroke-width="2"/><text x="20" y="102" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#6b7a89" font-weight="400">Evening crimes</text><line x1="221.7" y1="98" x2="295.8" y2="98" stroke="#b9b2a4" stroke-width="2.5" stroke-linecap="round"/><circle cx="260.5" cy="98" r="5" fill="#fff" stroke="#b9b2a4" stroke-width="2"/><text x="20" y="128" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#6b7a89" font-weight="400">Break-in</text><line x1="189.4" y1="124" x2="273.0" y2="124" stroke="#b9b2a4" stroke-width="2.5" stroke-linecap="round"/><circle cx="228.2" cy="124" r="5" fill="#fff" stroke="#b9b2a4" stroke-width="2"/><text x="20" y="154" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#6b7a89" font-weight="400">Vehicle theft</text><line x1="159.0" y1="150" x2="288.2" y2="150" stroke="#b9b2a4" stroke-width="2.5" stroke-linecap="round"/><circle cx="218.3" cy="150" r="5" fill="#fff" stroke="#b9b2a4" stroke-width="2"/><text x="20" y="180" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#6b7a89" font-weight="400">Theft from vehicle</text><line x1="170.4" y1="176" x2="246.4" y2="176" stroke="#b9b2a4" stroke-width="2.5" stroke-linecap="round"/><circle cx="206.1" cy="176" r="5" fill="#fff" stroke="#b9b2a4" stroke-width="2"/></svg></div>
+            <div class="body">
+              <div class="meta"><span class="cat">Time series · Ensemble ML</span><span class="badge">Group · INSY 674</span></div>
+              <h3>Halloween &amp; Crime in Montréal</h3>
+              <p class="q">Can we predict high-crime days, and does Halloween actually change crime?</p>
+              <div class="kpis">
+                <div><strong>363K+</strong><span>police reports, 2015–2025</span></div>
+                <div><strong>0.81</strong><span>cross-validated AUC</span></div>
+                <div><strong>+22%</strong><span>mischief during Halloween</span></div>
+              </div>
+              <p class="sum">Halloween changes the <em>mix</em> of crime, not the total: mischief and robbery rise about 22–24% while overall daily crime doesn't. The ensemble beat a seasonal baseline on both held-out years.</p>
+              <div class="chips"><span>scikit-learn</span><span>PyMC</span><span>Random forest</span><span>Neural nets</span></div>
+              <details>
+                <summary>Read the case study</summary>
+                <div class="case">
+                  <h4>Approach</h4>
+                  <ul>
+                    <li>Cleaned and translated French categories, aggregated to daily counts, engineered calendar, holiday, COVID and lag features.</li>
+                    <li>Leak-free sliding-window time-series CV (5 folds, 29-day gap); 2024–25 held out until the end.</li>
+                    <li>Compared logistic regression, Bayesian negative binomial (PyMC), random forest and a neural net; rank-averaged an ensemble of the three with the most different errors.</li>
+                  </ul>
+                  <h4>Results</h4>
+                  <ul>
+                    <li>Held-out AUC 0.66 vs. 0.65 (2024) and 0.67 vs. 0.65 (2025) against the seasonal-naive baseline.</li>
+                    <li>No reliable district differences (likelihood-ratio p = 0.067), so the effect is treated as citywide.</li>
+                  </ul>
+                </div>
+              </details>
+              <div class="links"><a href="https://github.com/maqbooltaha/montreal-halloween-crime" target="_blank" rel="noopener">Code &amp; notebook ↗</a></div>
+            </div>
+          </article>
+
+          <!-- AI usage -->
+          <article class="project reveal" data-cat="causal">
+            <div class="vis"><svg viewBox="0 0 440 220" role="img" aria-label="Productivity rises with AI use but the gain per hour falls from 1.1 to 0.1, levelling off near 8.6 hours" xmlns="http://www.w3.org/2000/svg"><text x="20" y="20" font-family="IBM Plex Sans, sans-serif" font-size="11" font-weight="600" fill="#0f2a44">Predicted productivity vs. daily AI use (quadratic OLS)</text><line x1="46" y1="165.1" x2="420" y2="165.1" stroke="#e3ded3"/><text x="38" y="168.1" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="end">3</text><line x1="46" y1="123.4" x2="420" y2="123.4" stroke="#e3ded3"/><text x="38" y="126.4" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="end">5</text><line x1="46" y1="81.7" x2="420" y2="81.7" stroke="#e3ded3"/><text x="38" y="84.7" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="end">7</text><line x1="46" y1="40.0" x2="420" y2="40.0" stroke="#e3ded3"/><text x="38" y="43.0" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="end">9</text><text x="46.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">0h</text><text x="120.8" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">2h</text><text x="195.6" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">4h</text><text x="270.4" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">6h</text><text x="345.2" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">8h</text><text x="420.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">10h</text><line x1="367.6" y1="40" x2="367.6" y2="186" stroke="#b8893e" stroke-dasharray="3 3"/><text x="361.6" y="50" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#b8893e" text-anchor="end">plateau ≈ 8.6 h/day</text><polyline points="64.7,163.0 68.4,160.6 72.2,158.2 75.9,155.8 79.7,153.4 83.4,151.1 87.1,148.9 90.9,146.6 94.6,144.4 98.4,142.2 102.1,140.0 105.8,137.9 109.6,135.8 113.3,133.7 117.1,131.7 120.8,129.7 124.5,127.7 128.3,125.8 132.0,123.8 135.8,121.9 139.5,120.1 143.2,118.2 147.0,116.4 150.7,114.7 154.5,112.9 158.2,111.2 161.9,109.5 165.7,107.9 169.4,106.3 173.2,104.7 176.9,103.1 180.6,101.6 184.4,100.1 188.1,98.6 191.9,97.1 195.6,95.7 199.3,94.3 203.1,93.0 206.8,91.7 210.6,90.4 214.3,89.1 218.0,87.9 221.8,86.6 225.5,85.5 229.3,84.3 233.0,83.2 236.7,82.1 240.5,81.1 244.2,80.0 248.0,79.0 251.7,78.1 255.4,77.1 259.2,76.2 262.9,75.3 266.7,74.5 270.4,73.7 274.1,72.9 277.9,72.1 281.6,71.4 285.4,70.7 289.1,70.0 292.8,69.4 296.6,68.8 300.3,68.2 304.1,67.6 307.8,67.1 311.5,66.6 315.3,66.2 319.0,65.7 322.8,65.3 326.5,65.0 330.2,64.6 334.0,64.3 337.7,64.0 341.5,63.8 345.2,63.5 348.9,63.3 352.7,63.2 356.4,63.0 360.2,62.9 363.9,62.9 367.6,62.8 371.4,62.8 375.1,62.8 378.9,62.9 382.6,62.9 386.3,63.0 390.1,63.2 393.8,63.3 397.6,63.5 401.3,63.8 405.0,64.0 408.8,64.3 412.5,64.6 416.3,65.0" fill="none" stroke="#0f2a44" stroke-width="3" stroke-linecap="round"/><circle cx="83.4" cy="151.1" r="4.5" fill="#b8893e" stroke="#fff" stroke-width="2"/><text x="93.4" y="169.1" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="start">+1.1 / hour</text><circle cx="345.2" cy="63.5" r="4.5" fill="#b8893e" stroke="#fff" stroke-width="2"/><text x="341.2" y="91.5" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="end">+0.1 / hour</text></svg></div>
+            <div class="body">
+              <div class="meta"><span class="cat">Regression · ML benchmark</span><span class="badge">Group · MGSC 661</span></div>
+              <h3>Does More AI Mean More Output?</h3>
+              <p class="q">Do people who use AI tools more actually get more done, and what makes them satisfied?</p>
+              <div class="kpis">
+                <div><strong>8.6 h</strong><span>daily use where gains plateau</span></div>
+                <div><strong>0.63</strong><span>test R², productivity</span></div>
+                <div><strong>9</strong><span>models benchmarked</span></div>
+              </div>
+              <p class="sum">More AI use raises productivity with sharply diminishing returns, and perceived accuracy drives satisfaction. The interpretable quadratic regression beat random forest, boosting, SVR, KNN and a neural net.</p>
+              <div class="chips"><span>statsmodels</span><span>Robust OLS</span><span>scikit-learn</span><span>Excel</span></div>
+              <details>
+                <summary>Read the case study</summary>
+                <div class="case">
+                  <h4>Hypotheses</h4>
+                  <ul>
+                    <li>✓ More usage → higher productivity (diminishing returns)</li>
+                    <li>✓ Higher perceived accuracy → higher satisfaction (+0.86 per point)</li>
+                    <li>✗ Paid vs. free tools · ✗ Students vs. professionals</li>
+                  </ul>
+                  <h4>Why data quality mattered</h4>
+                  <ul><li>One respondent reporting 23 hours of AI use a day pushed cross-validated R² below zero. Treating implausible values as missing raised it to 0.53.</li></ul>
+                  <h4>Deliverable</h4>
+                  <ul><li>A results workbook with every table plus an interactive calculator: enter hours of use, get predicted productivity and the marginal gain of one more hour.</li></ul>
+                </div>
+              </details>
+              <div class="links"><a href="https://github.com/maqbooltaha/ai-usage-productivity" target="_blank" rel="noopener">Code &amp; notebook ↗</a></div>
+            </div>
+          </article>
+
+          <!-- CIFAR -->
+          <article class="project reveal" data-cat="ml">
+            <div class="vis"><svg viewBox="0 0 440 220" role="img" aria-label="Fine-tuned ResNet-18 reaches 94.83 percent, the scratch CNN 91.56 percent and frozen features 85.25 percent" xmlns="http://www.w3.org/2000/svg"><text x="20" y="20" font-family="IBM Plex Sans, sans-serif" font-size="11" font-weight="600" fill="#0f2a44">CIFAR-10 test accuracy (axis starts at 80%)</text><line x1="20.0" y1="34" x2="20.0" y2="186" stroke="#e3ded3"/><text x="20.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">80%</text><line x1="120.0" y1="34" x2="120.0" y2="186" stroke="#e3ded3"/><text x="120.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">85%</text><line x1="220.0" y1="34" x2="220.0" y2="186" stroke="#e3ded3"/><text x="220.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">90%</text><line x1="320.0" y1="34" x2="320.0" y2="186" stroke="#e3ded3"/><text x="320.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">95%</text><line x1="420.0" y1="34" x2="420.0" y2="186" stroke="#e3ded3"/><text x="420.0" y="204" font-family="IBM Plex Mono, monospace" font-size="10" fill="#6b7a89" text-anchor="middle">100%</text><text x="20" y="44" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">ResNet-18, frozen features<tspan fill="#6b7a89"> · 0.8 min</tspan></text><rect x="20" y="52" width="105.0" height="16" rx="3" fill="#0f2a44" opacity="0.75"/><text x="119.0" y="64" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#fff" text-anchor="end">85.25%</text><text x="20" y="92" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">CNN from scratch · 1.2M params<tspan fill="#6b7a89"> · 8.3 min</tspan></text><rect x="20" y="100" width="231.2" height="16" rx="3" fill="#0f2a44" opacity="0.75"/><text x="245.2" y="112" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#fff" text-anchor="end">91.56%</text><text x="20" y="140" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#33414f">ResNet-18 fine-tuned · 11.2M<tspan fill="#6b7a89"> · 4.4 min</tspan></text><rect x="20" y="148" width="296.6" height="16" rx="3" fill="#b8893e" opacity="1"/><text x="310.6" y="160" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#fff" text-anchor="end">94.83%</text></svg></div>
+            <div class="body">
+              <div class="meta"><span class="cat">Deep learning · Computer vision</span><span class="badge">MGSC 673</span></div>
+              <h3>CNN vs. Transfer Learning on CIFAR-10</h3>
+              <p class="q">Train a small model from scratch, or fine-tune one pre-trained on ImageNet?</p>
+              <div class="kpis">
+                <div><strong>94.8%</strong><span>fine-tuned ResNet-18</span></div>
+                <div><strong>91.6%</strong><span>CNN built from scratch</span></div>
+                <div><strong>9×</strong><span>fewer parameters in the CNN</span></div>
+              </div>
+              <p class="sum">Transfer learning won on accuracy in 5 epochs instead of 30. The scratch CNN came within 3.3 points at a fraction of the size, making it the better choice for phones and embedded devices.</p>
+              <div class="chips"><span>PyTorch</span><span>torchvision</span><span>CNNs</span><span>Mixed precision</span></div>
+              <details>
+                <summary>Read the case study</summary>
+                <div class="case">
+                  <h4>Approach</h4>
+                  <ul>
+                    <li>45K / 5K / 10K train-validation-test split; random-crop and flip augmentation; test set used once.</li>
+                    <li>CNN: three conv blocks (64→128→256) with batch norm and dropout, SGD + OneCycle schedule.</li>
+                    <li>ResNet-18: 2 epochs training only the new head, then 3 epochs fine-tuning everything with AdamW.</li>
+                  </ul>
+                  <h4>Insight</h4>
+                  <ul><li>Frozen ImageNet features alone reached only 85.3%; unfreezing all layers added 9.6 points. Cats (80.6%) and dogs (86.6%) were the hardest classes.</li></ul>
+                </div>
+              </details>
+              <div class="links"><a href="https://github.com/maqbooltaha/cifar10-cnn-vs-transfer-learning" target="_blank" rel="noopener">Code &amp; notebook ↗</a></div>
+            </div>
+          </article>
+
+          <!-- ACME -->
+          <article class="project reveal" data-cat="data">
+            <div class="vis"><svg viewBox="0 0 440 220" role="img" aria-label="Pipeline from client requirements to a normalized SQL schema to generated handbooks, with audit tracking" xmlns="http://www.w3.org/2000/svg"><text x="20" y="20" font-family="IBM Plex Sans, sans-serif" font-size="11" font-weight="600" fill="#0f2a44">From requirements to traceable handbooks</text><rect x="20" y="58" width="88" height="64" rx="6" fill="#fff" stroke="#0f2a44" stroke-width="1.3"/><text x="64.0" y="87" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#0f2a44" text-anchor="middle">Client</text><text x="64.0" y="101" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#0f2a44" text-anchor="middle">requirements</text><path d="M110 90 L120 90" stroke="#b8893e" stroke-width="2"/><path d="M116 86 L121 90 L116 94" fill="none" stroke="#b8893e" stroke-width="2"/><rect x="123" y="58" width="88" height="64" rx="6" fill="#fff" stroke="#0f2a44" stroke-width="1.3"/><text x="167.0" y="87" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#0f2a44" text-anchor="middle">Normalized</text><text x="167.0" y="101" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#0f2a44" text-anchor="middle">ER schema</text><path d="M213 90 L223 90" stroke="#b8893e" stroke-width="2"/><path d="M219 86 L224 90 L219 94" fill="none" stroke="#b8893e" stroke-width="2"/><rect x="226" y="58" width="88" height="64" rx="6" fill="#fff" stroke="#0f2a44" stroke-width="1.3"/><text x="270.0" y="87" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#0f2a44" text-anchor="middle">SQL queries</text><path d="M316 90 L326 90" stroke="#b8893e" stroke-width="2"/><path d="M322 86 L327 90 L322 94" fill="none" stroke="#b8893e" stroke-width="2"/><rect x="329" y="58" width="88" height="64" rx="6" fill="#0f2a44" stroke="#0f2a44" stroke-width="1.3"/><text x="373.0" y="87" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#fff" text-anchor="middle">Config-specific</text><text x="373.0" y="101" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#fff" text-anchor="middle">handbooks</text><path d="M373.0 122 V160 H64.0 V122" fill="none" stroke="#b8893e" stroke-width="1.5" stroke-dasharray="4 3"/><rect x="150" y="150" width="140" height="22" rx="11" fill="#f3ead9"/><text x="220" y="165" font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#0f2a44" text-anchor="middle">version control + audit</text><text x="220" y="200" font-family="IBM Plex Sans, sans-serif" font-size="11" fill="#6b7a89" text-anchor="middle">Every deployed handbook traces back to an approved release</text></svg></div>
+            <div class="body">
+              <div class="meta"><span class="cat">SQL · Database design</span><span class="badge">Aug 2026</span></div>
+              <h3>ACME Simulators Database Design</h3>
+              <p class="q">How do you stop a simulator company from maintaining a separate manual for every configuration?</p>
+              <div class="kpis">
+                <div><strong>ER → SQL</strong><span>model, dictionary &amp; schema</span></div>
+                <div><strong>0</strong><span>duplicate manuals</span></div>
+                <div><strong>100%</strong><span>handbooks traceable to a release</span></div>
+              </div>
+              <p class="sum">Translated client requirements into an ER model, data dictionary and SQL schema. Queries now generate configuration-specific handbooks on demand, and version control with audit tracking ties every deployed handbook to an approved release.</p>
+              <div class="chips"><span>SQL</span><span>ER modelling</span><span>Normalization</span><span>Data dictionary</span></div>
+              <div class="links"><span class="note">Course project · code available on request</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PROCESS ============================ -->
+    <section class="block" id="process">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">04 · How I work</span><h2>From question to recommendation.</h2><p>The same five steps run through every project above.</p></div>
+        <div class="process reveal">
+          <div class="step"><h3>Frame</h3><p>Start from the decision, not the dataset. Write the question and hypotheses down first.</p><div class="eg">"Does Halloween change crime, or just its mix?"</div></div>
+          <div class="step"><h3>Clean</h3><p>Audit the data before trusting it. One bad value can flip a conclusion.</p><div class="eg">One 23 h/day response sent R² below zero.</div></div>
+          <div class="step"><h3>Model</h3><p>Compare simple and complex models honestly. Interpretable often wins.</p><div class="eg">Quadratic OLS beat 8 tuned ML models.</div></div>
+          <div class="step"><h3>Validate</h3><p>Leak-free splits, held-out tests and refutation checks.</p><div class="eg">Placebo test dropped the smoking effect to −$105.</div></div>
+          <div class="step"><h3>Communicate</h3><p>Lead with the answer, show uncertainty, state the limits.</p><div class="eg">Workbook calculator for non-technical users.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ SKILLS ============================ -->
+    <section class="block" id="skills">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">05 · Toolkit</span><h2>Skills, and where I've used them.</h2></div>
+        <div class="skills">
+          <div class="skill-card reveal">
+            <h3><i></i>Programming &amp; modelling</h3>
+            <div class="skill"><b>Python</b><small>all projects</small></div>
+            <div class="skill"><b>pandas · scikit-learn</b><small>insurance, crime, AI usage</small></div>
+            <div class="skill"><b>PyTorch</b><small>CIFAR-10</small></div>
+            <div class="skill"><b>statsmodels · PyMC</b><small>AI usage, crime</small></div>
+            <div class="skill"><b>CausalML · DoWhy</b><small>insurance</small></div>
+          </div>
+          <div class="skill-card reveal">
+            <h3><i></i>Data &amp; BI</h3>
+            <div class="skill"><b>SQL</b><small>ACME schema &amp; queries</small></div>
+            <div class="skill"><b>ER modelling · normalization</b><small>ACME</small></div>
+            <div class="skill"><b>Power BI · Tableau</b><small>Ometz capstone</small></div>
+            <div class="skill"><b>KPI &amp; scorecard design</b><small>Ometz capstone</small></div>
+            <div class="skill"><b>Matplotlib</b><small>all Python projects</small></div>
+          </div>
+          <div class="skill-card reveal">
+            <h3><i></i>Finance &amp; business</h3>
+            <div class="skill"><b>SAP</b><small>K-Electric</small></div>
+            <div class="skill"><b>Excel</b><small>pivots, XLOOKUP, models</small></div>
+            <div class="skill"><b>Financial modelling</b><small>KU Finance degree</small></div>
+            <div class="skill"><b>Variance &amp; statement analysis</b><small>K-Electric</small></div>
+            <div class="skill"><b>English · Urdu</b><small>fluent in both</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ EDUCATION ============================ -->
+    <section class="block" id="education">
+      <div class="wrap">
+        <div class="section-head reveal"><span class="kicker">06 · Education</span><h2>Education &amp; credentials.</h2></div>
+        <div class="edu">
+          <div class="edu-card reveal" data-mark="McGill">
+            <span class="date">July 2026 – Aug 2027 (expected)</span>
+            <h3>McGill University</h3>
+            <p class="deg">Master of Management in Analytics · Desautels</p>
+            <ul>
+              <li>Deep Learning <small>MGSC 673</small></li>
+              <li>Text Analytics <small>INSY 669</small></li>
+              <li>Managing Data Analytic Teams <small>ORGB 660</small></li>
+              <li>Capstone with Agence Ometz <small>BI Developer</small></li>
+            </ul>
+          </div>
+          <div class="edu-card reveal" data-mark="KU">
+            <span class="date">Aug 2021 – May 2026</span>
+            <h3>University of Kansas</h3>
+            <p class="deg">B.S. Finance &amp; Business Analytics · School of Business</p>
+            <ul>
+              <li>University Honor Roll <small>2 semesters</small></li>
+              <li>Promoted to Crew Leader while studying <small>KU Dining</small></li>
+              <li>Finance internship at K-Electric <small>Summer 2024</small></li>
+            </ul>
+          </div>
+        </div>
+        <div class="certs">
+          <div class="cert reveal"><small>IBM</small>Cybersecurity System Administration &amp; Framework Security</div>
+          <div class="cert reveal"><small>IBM</small>Cybersecurity Compliance &amp; System Administration</div>
+          <div class="cert reveal"><small>NYU</small>Introduction to Network Security</div>
+          <div class="cert reveal"><small>SIX SIGMA</small>White Belt in E-commerce</div>
+        </div>
+        <div class="beyond">
+          <div class="beyond-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/></svg></div><div><h3>Interests</h3><p>Financial markets, hedge funds and asset management, real estate investing, and analytics consulting.</p></div></div>
+          <div class="beyond-card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22V3l7 4-7 4"/><ellipse cx="12" cy="21" rx="6" ry="1.5"/></svg></div><div><h3>Off the clock</h3><p>Golf. My current deep learning project uses PGA Tour data with a focus on the Masters.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============================ CONTACT ============================ -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="kicker">07 · Contact</span>
+        <h2>Let's build something <em>useful</em>.</h2>
+        <p>I'm open to internships and full-time roles in finance and analytics. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+        <button class="copy" id="copy" data-email="tahasajidmaqbool@gmail.com">tahasajidmaqbool@gmail.com <span>Copy</span></button>
+      </div>
+      <ul class="contact-list reveal">
+        <li><a href="mailto:tahasajidmaqbool@gmail.com">Email <span>Send a message ↗</span></a></li>
+        <li><a href="https://www.linkedin.com/in/taha-maqbool001/" target="_blank" rel="noopener">LinkedIn <span>/in/taha-maqbool001 ↗</span></a></li>
+        <li><a href="https://github.com/maqbooltaha" target="_blank" rel="noopener">GitHub <span>/maqbooltaha ↗</span></a></li>
+        <li><a href="Taha_Maqbool_Resume.pdf" target="_blank" rel="noopener">Résumé <span>PDF ↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <div class="wrap"><div class="inner">
+      <span>© <span id="yr">2026</span> Taha Maqbool · Montréal, Québec</span>
+      <a href="#top">Back to top ↑</a>
+    </div></div>
+  </footer>
+  <div class="toast" id="toast">Email copied</div>
+
+  <script>
+    (function () {
+      var nav = document.getElementById("nav"), prog = document.getElementById("progress");
+      document.getElementById("yr").textContent = new Date().getFullYear();
+
+      function onScroll() {
+        var y = window.scrollY, h = document.documentElement.scrollHeight - innerHeight;
+        nav.classList.toggle("solid", y > 40);
+        prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+      }
+      addEventListener("scroll", onScroll, { passive: true }); onScroll();
+
+      // mobile menu
+      var links = document.getElementById("links");
+      document.getElementById("burger").onclick = function () { links.classList.toggle("open"); nav.classList.add("solid"); };
+      links.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { links.classList.remove("open"); }); });
+
+      // reveal + counters + active nav
+      function countUp(el) {
+        var to = parseFloat(el.dataset.to), dec = +(el.dataset.dec || 0), t0 = null, dur = 1400;
+        function fmt(v) { return el.dataset.fmt === "k" ? Math.round(v).toLocaleString("en-US") : v.toFixed(dec); }
+        function tick(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / dur, 1), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(to * e); if (p < 1) requestAnimationFrame(tick); }
+        requestAnimationFrame(tick);
+      }
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: 0.1 });
+        document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
+        var co = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { reduce ? (e.target.textContent = (+e.target.dataset.to).toLocaleString("en-US")) : countUp(e.target); co.unobserve(e.target); } }); });
+        document.querySelectorAll(".count").forEach(function (el) { co.observe(el); });
+        var navAs = {}; document.querySelectorAll(".nav-links a[href^='#']").forEach(function (a) { navAs[a.getAttribute("href").slice(1)] = a; });
+        var so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && navAs[e.target.id]) { Object.values(navAs).forEach(function (a) { a.classList.remove("active"); }); navAs[e.target.id].classList.add("active"); } }); }, { rootMargin: "-45% 0px -50% 0px" });
+        document.querySelectorAll("section[id]").forEach(function (s) { so.observe(s); });
+      } else {
+        document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
+        document.querySelectorAll(".count").forEach(function (el) { el.textContent = (+el.dataset.to).toLocaleString("en-US"); });
+      }
+
+      // project filters
+      var btns = document.querySelectorAll(".filters button");
+      btns.forEach(function (b) {
+        b.onclick = function () {
+          btns.forEach(function (x) { x.classList.remove("on"); }); b.classList.add("on");
+          var f = b.dataset.f;
+          document.querySelectorAll(".project").forEach(function (p) {
+            var show = f === "all" || p.dataset.cat.split(" ").indexOf(f) > -1;
+            p.classList.toggle("hide", !show);
+            if (show) { p.classList.add("in"); p.classList.remove("pop"); void p.offsetWidth; p.classList.add("pop"); }
+            p.classList.toggle("wide", show && p.dataset.wide === "1" && f === "all");
+          });
+        };
+      });
+      document.querySelectorAll(".project.wide").forEach(function (p) { p.dataset.wide = "1"; });
+
+      // copy email
+      var toast = document.getElementById("toast");
+      document.getElementById("copy").onclick = function () {
+        var em = this.dataset.email;
+        (navigator.clipboard ? navigator.clipboard.writeText(em) : Promise.reject()).then(function () {
+          toast.classList.add("show"); setTimeout(function () { toast.classList.remove("show"); }, 1800);
+        }, function () { location.href = "mailto:" + em; });
+      };
+    })();
+  </script>
+</body>
+</html>
